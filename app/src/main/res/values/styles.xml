@@ -1,0 +1,119 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@color/white</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!--input edit color-->
+        <item name="colorControlNormal">@color/gray</item>
+        <item name="colorControlActivated">@color/gold</item>
+        <item name="colorControlHighlight">@color/gold</item>
+        <!-- Customize your theme here. -->
+        <!--datepick dialog-->
+        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <item name="colorPrimaryDark">@color/black</item><!--控制system bar color-->
+        <!--<item name="colorAccent">@color/peach</item>-->
+    </style>
+    
+    <!--dialog no background-->
+    <style name="dialogNobackground" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.3</item>
+    </style>
+
+    <!--dialog background gray-->
+    <style name="dialogBackgroundGray" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">#c0c0c0c0</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <!--dialog menu anim-->
+    <style name="dialogAnimstyleLeft">
+        <item name="android:windowEnterAnimation">@anim/windows_in_left</item>
+        <item name="android:windowExitAnimation">@anim/windows_out_left</item>
+    </style>
+
+    <!--dialog menu anim bottom-->
+    <style name="dialogAnimstyleBottom">
+        <item name="android:windowEnterAnimation">@anim/windows_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/windows_out_bottom</item>
+    </style>
+
+    <!--datepick dialog-->
+    <style name="MyDatePickerDialogTheme" parent="android:Theme.Material.Dialog">
+        <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
+        <item name="colorAccent">@color/gold</item>
+        <item name="android:colorAccent">@color/gold</item>
+        <item name="android:colorPrimary">@color/gold</item>
+        <item name="android:colorPrimaryDark">@color/gold</item>
+    </style>
+    <style name="MyDatePickerStyle" parent="@android:style/Widget.Material.DatePicker">
+        <item name="android:headerBackground">@color/gold</item>
+    </style>
+
+
+    <!--tablayout-->
+    <style name="TabLayoutStyle" parent="Widget.Design.TabLayout">
+        <item name="tabGravity">fill</item>
+        <item name="tabMode">fixed</item>
+        <!--<item name="tabMode">scrollable</item>-->
+        <item name="tabMaxWidth">400dp</item>
+        <item name="tabBackground">@color/blueslave</item>
+        <item name="tabTextAppearance">@style/TabLayoutTextOnSelected</item>
+        <item name="tabSelectedTextColor">@color/gold</item>
+        <item name="tabIndicatorColor">@color/gold</item>
+        <item name="tabIndicatorHeight">2dp</item>
+    </style>
+    <style name="TabLayoutTextOnSelected">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <!-- linear progress bar-->
+    <style name="ProgressBarHorizontal" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/bg_progress_bar_horizontal</item>
+        <item name="android:indeterminate">false</item>
+    </style>
+    <!-- cycle progress bar-->
+    <style name="ProgressBarCycle" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">@color/peach</item> <!-- Whatever color you want-->
+    </style>
+
+    <!--input layout stytle-->
+    <style name="TextInputLayout">
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="errorTextColor">#FF6767</item>
+    </style>
+    <!--input edit text stysle-->
+    <style name="TextInputEditText">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <!--check box stysle-->
+    <style name="CheckBox">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@drawable/selector_checkbox</item>
+    </style>
+
+</resources>

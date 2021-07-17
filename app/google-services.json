@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "551752409156",
+    "project_id": "sampleprojectkotlin",
+    "storage_bucket": "sampleprojectkotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551752409156:android:bf5410cb37d4cf72cb9c11",
+        "android_client_info": {
+          "package_name": "com.freeman.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "551752409156-42o54avsehbtfku3jlluau8teqi06no5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.freeman.project",
+            "certificate_hash": "26ee1fb37e1d545db48e8d3cf30acb6d2d1bc95c"
+          }
+        },
+        {
+          "client_id": "551752409156-j9sghbvmkk2m6onl73l9gktsnjm8l2ov.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIyoNJIDOgyLMiWsSst6E8PA_NcUnsMlo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "551752409156-j9sghbvmkk2m6onl73l9gktsnjm8l2ov.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
