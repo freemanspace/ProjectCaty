@@ -61,4 +61,5 @@ class ZoomFragmentModel : BaseViewModel() {
         }
         super.onCleared()
     }
+
 }

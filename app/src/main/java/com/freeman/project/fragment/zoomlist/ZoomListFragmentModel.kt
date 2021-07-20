@@ -27,9 +27,9 @@ class ZoomListFragmentModel : BaseViewModel() {
 
     fun getZoomInfoJson(){
 
-        var zoomInfoDao = SqlManager.dataBase.zoomInfoDao()
-        var tmpZoominfos = zoomInfoDao.getZoomInfos()
-        if(tmpZoominfos.size>0){
+        val zoomInfoDao = SqlManager.dataBase.zoomInfoDao()
+        val tmpZoominfos = zoomInfoDao.getZoomInfos()
+        if(tmpZoominfos.isNotEmpty()){
             zoomInfos.postValue(tmpZoominfos.toArrayList())
         } else{
             startLoading()
