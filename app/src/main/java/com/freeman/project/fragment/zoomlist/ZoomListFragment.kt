@@ -3,6 +3,7 @@ package com.freeman.project.fragment.zoomlist
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,7 @@ import com.freeman.project.fragment.zoom.ZoomFragment
 import com.freeman.project.sql.table.ZoomInfo
 import com.freeman.project.utils.UtilRoute
 import com.freeman.project.utils.UtilView.onSingleClick
+import kotlinx.coroutines.launch
 
 class ZoomListFragment : BaseFragment<FragmentZoomlistBinding,ZoomListFragmentModel>() {
 

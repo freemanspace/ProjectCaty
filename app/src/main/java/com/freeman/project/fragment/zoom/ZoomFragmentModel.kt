@@ -17,20 +17,23 @@ class ZoomFragmentModel : BaseViewModel() {
     lateinit var zoomInfo:ZoomInfo
     val plantInfos = SingleLiveEvent<ArrayList<PlantInfo>>()
     var canLoadMore = true  //是否可以取得更多資料
-    val jobs = ArrayList<Job>()
 
     fun getPlantInfos(){
         if(canLoadMore) {
             startLoading()
             if (plantInfos.value != null) {
-                DemoApiManager.getPlantInfo(
-                    PlantInfoRequest(
-                        zoomInfo.name,
-                        plantInfos.value!!.size
-                    ), onApiFinish
+                jobs.add(
+                    DemoApiManager.getPlantInfo(
+                        PlantInfoRequest(
+                            zoomInfo.name,
+                            plantInfos.value!!.size
+                        ), onApiFinish
+                    )
                 )
             } else {
-                DemoApiManager.getPlantInfo(PlantInfoRequest(zoomInfo.name, 0), onApiFinish)
+                jobs.add(
+                    DemoApiManager.getPlantInfo(PlantInfoRequest(zoomInfo.name, 0), onApiFinish)
+                )
             }
         }
     }
@@ -54,12 +57,5 @@ class ZoomFragmentModel : BaseViewModel() {
         }
     }
 
-    override fun onCleared() {
-        for (job in jobs){
-            job.cancel()
-            jobs.remove(job)
-        }
-        super.onCleared()
-    }
 
 }
