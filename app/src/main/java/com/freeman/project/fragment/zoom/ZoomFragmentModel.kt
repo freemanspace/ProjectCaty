@@ -22,18 +22,21 @@ class ZoomFragmentModel : BaseViewModel() {
         if(canLoadMore) {
             startLoading()
             if (plantInfos.value != null) {
-                jobs.add(
-                    DemoApiManager.getPlantInfo(
-                        PlantInfoRequest(
-                            zoomInfo.name,
-                            plantInfos.value!!.size
-                        ), onApiFinish
-                    )
-                )
+                DemoApiManager.getPlantInfo(
+                    PlantInfoRequest(
+                        zoomInfo.name,
+                        plantInfos.value!!.size
+                    ), onApiFinish
+                ).let {
+                    jobs.add(it)
+                }
             } else {
-                jobs.add(
-                    DemoApiManager.getPlantInfo(PlantInfoRequest(zoomInfo.name, 0), onApiFinish)
-                )
+                DemoApiManager.getPlantInfo(
+                    PlantInfoRequest(zoomInfo.name, 0),
+                    onApiFinish
+                ).let {
+                    jobs.add(it)
+                }
             }
         }
     }
@@ -56,6 +59,5 @@ class ZoomFragmentModel : BaseViewModel() {
             }
         }
     }
-
 
 }

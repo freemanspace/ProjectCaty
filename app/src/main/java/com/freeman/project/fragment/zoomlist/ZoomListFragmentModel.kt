@@ -32,31 +32,33 @@ class ZoomListFragmentModel : BaseViewModel() {
             zoomInfos.postValue(tmpZoominfos.toArrayList())
         } else{
             startLoading()
-            jobs.add(
-                DemoApiManager.getZoomInfo(ZoomInfoRequest(),object :OnApiFinish<ZoomInfoJson>{
-                    override fun onApiFinish(msg: Int, dataObj: ZoomInfoJson) {
-                        stopLoading()
-                        if(dataObj.isSuccess()){
-                            MainScope().launch {
-                                val deferred = async(Dispatchers.IO) {
-                                    //塞入cache version
-                                    SqlManager.dataBase.cacheVersionDao().apply {
-                                        insertCacheVersion(CacheVersion(CacheVersion.zoomInfo,Calendar.getInstance().toString(2)))
-                                    }
-                                    //zoom info cache in db
-                                    for (zoomInfo in dataObj.zoomInfoList){
-                                        zoomInfoDao.insertZoomInfo(zoomInfo)
-                                    }
+            DemoApiManager.getZoomInfo(ZoomInfoRequest(),object :OnApiFinish<ZoomInfoJson>{
+                override fun onApiFinish(msg: Int, dataObj: ZoomInfoJson) {
+                    stopLoading()
+                    if(dataObj.isSuccess()){
+                        MainScope().launch {
+                            val deferred = async(Dispatchers.IO) {
+                                //塞入cache version
+                                SqlManager.dataBase.cacheVersionDao().apply {
+                                    insertCacheVersion(CacheVersion(CacheVersion.zoomInfo,Calendar.getInstance().toString(2)))
                                 }
-                                deferred.await()
-                                zoomInfos.postValue(dataObj.zoomInfoList)
+                                //zoom info cache in db
+                                for (zoomInfo in dataObj.zoomInfoList){
+                                    zoomInfoDao.insertZoomInfo(zoomInfo)
+                                }
                             }
-                        } else {
-                            showApiErrMsg(dataObj)
+                            deferred.await()
+                            zoomInfos.postValue(dataObj.zoomInfoList)
                         }
+                    } else {
+                        showApiErrMsg(dataObj)
                     }
-                })
-            )
+                }
+            }).let {
+                jobs.add(it)
+            }
+
+
 
         }
     }

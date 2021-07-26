@@ -25,9 +25,14 @@ open class BaseViewModel:ViewModel() {
 
     override fun onCleared() {
         for (job in jobs){
-            job.cancel()
-            jobs.remove(job)
+            try {
+                if (job.isActive) {
+                    job.cancel()
+                }
+            } catch (e:Exception){
+            }
         }
+        jobs.clear()
         super.onCleared()
     }
 }

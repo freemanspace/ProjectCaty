@@ -83,6 +83,9 @@ class ZoomFragment : BaseFragment<FragmentZoomBinding, ZoomFragmentModel>() {
         viewModel.getPlantInfos()
     }
 
+    override fun onPause() {
+        super.onPause()
+    }
 
     //viewholder
     inner class ViewHolderPlant(var itemViewBinding: AdapterPlantBinding) : RecyclerView.ViewHolder(itemViewBinding.root) {
